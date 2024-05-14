@@ -1,9 +1,10 @@
 package Parser;
 
 import java.util.List;
-import Exception.CustomException;
-import lexical_analyzer.LexicalAnalyser;
-import lexical_analyzer.Token;
+
+import Lexical_Analyzer.LexicalAnalyser;
+import Lexical_Analyzer.Token;
+import Utils.CustomException;
 
 public class TestParser {
 

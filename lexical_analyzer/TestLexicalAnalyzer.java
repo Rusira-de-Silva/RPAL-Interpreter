@@ -1,7 +1,8 @@
-package lexical_analyzer;
+package Lexical_Analyzer;
 
 import java.util.List;
-import Exception.CustomException;
+
+import Utils.CustomException;
 
 public class TestLexicalAnalyzer {
     public static void main(String[] args) {
