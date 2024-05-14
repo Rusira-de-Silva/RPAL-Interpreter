@@ -1,15 +1,16 @@
 package Parser;
 
 import java.util.List;
-import Exception.CustomException;
-import lexical_analyzer.LexicalAnalyser;
-import lexical_analyzer.Token;
+
+import Scanner.LexicalAnalyzer;
+import Scanner.Token;
+import Utils.CustomException;
 
 public class TestParser {
 
 	public static void main(String[] args) {
 		String inputFileName = "t1.txt";
-	      LexicalAnalyser scanner = new LexicalAnalyser(inputFileName);
+	      LexicalAnalyzer scanner = new LexicalAnalyzer(inputFileName);
 	      List<Token> tokens;
 	      List<Node> AST;   
 			try {

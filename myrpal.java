@@ -1,4 +1,4 @@
-import Engine.Evaluvator;
+import Evaluator.Evaluator;
 
 public class myrpal {
     
@@ -26,7 +26,7 @@ public class myrpal {
             System.out.println("Invalid Arguments Passing!");
             return;
         }
-        System.out.println(Evaluvator.evaluvate(fn,isPrintAST));                                  
+        System.out.println(Evaluator.evaluvate(fn,isPrintAST));                                  
 
 
                                                                  

@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import lexical_analyzer.Token;
-import lexical_analyzer.TokenType;
+import Scanner.Token;
+import Scanner.TokenType;
 
 public class Parser {
 	private List<Token> tokens;
