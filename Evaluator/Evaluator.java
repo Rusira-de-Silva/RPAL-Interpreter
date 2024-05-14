@@ -1,20 +1,20 @@
-package Evaluvator;
+package Evaluator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import AST_Generator.AST;
 import AST_Generator.ASTFactory;
-import Lexical_Analyzer.LexicalAnalyser;
-import Lexical_Analyzer.Token;
 import Parser.Node;
 import Parser.Parser;
+import Scanner.LexicalAnalyzer;
+import Scanner.Token;
 import Utils.CustomException;
 
-public class Evaluvator {
+public class Evaluator {
     public static String evaluvate(String filename, boolean isPrintAST){
 
-	      LexicalAnalyser scanner = new LexicalAnalyser(filename);
+	      LexicalAnalyzer scanner = new LexicalAnalyzer(filename);
 	      List<Token> tokens;
 	      List<Node> AST;   
 			try {

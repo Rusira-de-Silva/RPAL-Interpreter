@@ -1,4 +1,4 @@
-package Lexical_Analyzer;
+package Scanner;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,11 +10,11 @@ import java.util.regex.Pattern;
 
 import Utils.CustomException;
 
-public class LexicalAnalyser {
+public class LexicalAnalyzer {
     private String inputFileName;
     private List<Token> tokens;	
 
-    public LexicalAnalyser(String inputFileName) {
+    public LexicalAnalyzer(String inputFileName) {
         this.inputFileName = inputFileName;
         tokens = new ArrayList<>();
     }

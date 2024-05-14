@@ -1,4 +1,4 @@
-package Lexical_Analyzer;
+package Scanner;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public class TestLexicalAnalyzer {
     public static void main(String[] args) {
 
       String inputFileName = "t1.txt";
-      LexicalAnalyser scanner = new LexicalAnalyser(inputFileName);
+      LexicalAnalyzer scanner = new LexicalAnalyzer(inputFileName);
       List<Token> tokens;
 		try {
 			tokens = scanner.scan();
