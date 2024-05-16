@@ -10,6 +10,11 @@ import java.util.regex.Pattern;
 
 import Utils.CustomException;
 
+/**
+ * The LexicalAnalyzer class is responsible for tokenizing the input file and generating a list of tokens.
+ * It reads the input file line by line, tokenizes each line, and adds the tokens to the list.
+ * The class provides a scan() method to start the tokenization process.
+ */
 public class LexicalAnalyzer {
     private String inputFileName;
     private List<Token> tokens;	
@@ -19,6 +24,12 @@ public class LexicalAnalyzer {
         tokens = new ArrayList<>();
     }
 
+    /**
+     * Scans the input file and tokenizes each line.
+     * 
+     * @return A list of tokens generated from the input file.
+     * @throws CustomException If an error occurs during the scanning process.
+     */
     public List<Token> scan() throws CustomException {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName))) {
             String line;
@@ -38,6 +49,12 @@ public class LexicalAnalyzer {
         return tokens;
     }
 
+    /**
+     * Tokenizes a given line of code.
+     *
+     * @param line the line of code to be tokenized
+     * @throws CustomException if there is an error while tokenizing the line
+     */
     private void tokenizeLine(String line) throws CustomException {
     	String digit = "[0-9]";
     	String letter = "[a-zA-Z]";

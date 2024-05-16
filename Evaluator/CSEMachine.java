@@ -4,29 +4,62 @@ import java.util.ArrayList;
 
 import Lambda.*;
 
+/**
+ * The CSEMachine class represents a CSE machine used for evaluating RPAL expressions.
+ * It contains a control stack, a symbol stack, and an environment stack.
+ */
+
 public class CSEMachine {
     private ArrayList<Symbol> control;
     private ArrayList<Symbol> stack;
     private ArrayList<E> environment;
 
+
+    /**
+     * Constructs a CSEMachine object with the given control, stack, and environment.
+     * 
+     * @param control     The control stack.
+     * @param stack       The symbol stack.
+     * @param environment The environment stack.
+     */
     public CSEMachine(ArrayList<Symbol> control, ArrayList<Symbol> stack, ArrayList<E> environment) {
         this.setControl(control);
         this.setStack(stack);
         this.setEnvironment(environment);
     }  
     
+
+    /**
+     * Sets the control stack of the CSEMachine.
+     * 
+     * @param control The control stack.
+     */
     public void setControl(ArrayList<Symbol> control) {
         this.control = control;
     }
     
+
+    /**
+     * Sets the symbol stack of the CSEMachine.
+     * 
+     * @param stack The symbol stack.
+     */
     public void setStack(ArrayList<Symbol> stack) {
         this.stack = stack;
     }
     
+    /**
+     * Sets the environment stack of the CSEMachine.
+     * 
+     * @param environment The environment stack.
+     */
     public void setEnvironment(ArrayList<E> environment) {
         this.environment = environment;
     }
-    
+
+    /**
+     * Executes the CSEMachine by evaluating the RPAL expressions.
+    */
     public void execute() {
         E currentEnvironment = this.environment.get(0);
         int j = 1;

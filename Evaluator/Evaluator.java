@@ -11,6 +11,14 @@ import Scanner.LexicalAnalyzer;
 import Scanner.Token;
 import Utils.CustomException;
 
+/**
+ * The Evaluator class is responsible for evaluating RPAL programs.
+ * It provides a static method `evaluate` that takes a filename and a boolean flag as input.
+ * The `evaluate` method scans the input file, parses the tokens, builds the abstract syntax tree (AST),
+ * standardizes the AST, creates a CSEMachine, and returns the answer computed by the CSEMachine.
+ * If the `isPrintAST` flag is set to true, the AST is printed to the console before evaluation.
+ * If any exceptions occur during the evaluation process, an error message is printed to the console.
+ */
 public class Evaluator {
     public static String evaluvate(String filename, boolean isPrintAST){
 
