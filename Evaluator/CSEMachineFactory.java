@@ -1,3 +1,6 @@
+/**
+ * The Evaluator package contains classes related to the evaluation of RPAL expressions.
+ */
 package Evaluator;
 
 import java.util.ArrayList;
@@ -6,6 +9,11 @@ import AST_Generator.AST;
 import AST_Generator.Node;
 import Lambda.*;
 
+/**
+ * The CSEMachineFactory class is responsible for creating instances of the CSEMachine class
+ * and providing methods to generate the control, stack, and environment for the CSEMachine.
+ * It also contains methods to convert AST nodes into symbols used by the CSEMachine.
+ */
 public class CSEMachineFactory {
     private E e0 = new E(0);
     private int i = 1;
@@ -15,6 +23,12 @@ public class CSEMachineFactory {
         
     }
     
+    /**
+     * The `Symbol` class represents a symbol in the RPAL language.
+     * It is used to represent different types of symbols such as unary operators, binary operators,
+     * special symbols like gamma and tau, identifiers, integers, strings, tuples, booleans, and errors.
+     * Each symbol has a specific meaning and behavior in the RPAL interpreter.
+     */
     public Symbol getSymbol(Node node) {
         switch (node.getData()) {
             case "not": 
@@ -69,6 +83,9 @@ public class CSEMachineFactory {
         return b;
     }
     
+    /**
+     * Represents a lambda function.
+     */
     public Lambda getLambda(Node node) {
         Lambda lambda = new Lambda(this.i++);
         lambda.setDelta(this.getDelta(node.children.get(1)));
@@ -82,6 +99,15 @@ public class CSEMachineFactory {
         return lambda;
     }
     
+    /**
+     * Returns an ArrayList of symbols obtained by performing a pre-order traversal on the given node.
+     * If the node's data is "lambda", it adds the lambda symbol to the list.
+     * If the node's data is "->", it adds the delta symbol, beta symbol, and the B symbol to the list.
+     * Otherwise, it adds the symbol obtained from the node's data to the list and recursively performs a pre-order traversal on its children.
+     *
+     * @param node the node to perform the pre-order traversal on
+     * @return an ArrayList of symbols obtained from the pre-order traversal
+     */
     private ArrayList<Symbol> getPreOrderTraverse(Node node) {
         ArrayList<Symbol> symbols = new ArrayList<Symbol>();
         if ("lambda".equals(node.getData())) {
@@ -100,12 +126,21 @@ public class CSEMachineFactory {
         return symbols;
     }
     
+    /**
+     * Represents a delta object that stores the symbols obtained from a pre-order traversal of a given node.
+     */
     public Delta getDelta(Node node) {
         Delta delta = new Delta(this.j++);
         delta.symbols = this.getPreOrderTraverse(node);
         return delta;        
     }
     
+    /**
+     * Returns the control list for the given AST.
+     *
+     * @param ast The Abstract Syntax Tree representing the program.
+     * @return The control list as an ArrayList of Symbol objects.
+     */
     public ArrayList<Symbol> getControl(AST ast) {
         ArrayList<Symbol> control = new ArrayList<Symbol>();
         control.add(this.e0);
@@ -113,18 +148,33 @@ public class CSEMachineFactory {
         return control;
     }
     
+    /**
+     * Returns the stack of symbols.
+     *
+     * @return the stack of symbols
+     */
     public ArrayList<Symbol> getStack() {
         ArrayList<Symbol> stack = new ArrayList<Symbol>();
         stack.add(this.e0);
         return stack;
     }
     
+    /**
+     * Returns the environment of the CSE machine.
+     * The environment is represented as an ArrayList of type E.
+     * 
+     * @return the environment of the CSE machine
+     */
     public ArrayList<E> getEnvironment() {
         ArrayList<E> environment = new ArrayList<E>();
         environment.add(this.e0);
         return environment;
     }
     
+    /**
+     * Represents a CSEMachine, which is responsible for evaluating an Abstract Syntax Tree (AST)
+     * using the Control-Stack-Environment (CSE) machine model.
+     */
     public CSEMachine getCSEMachine(AST ast) {        
         return new CSEMachine(this.getControl(ast), this.getStack(), this.getEnvironment());
     }

@@ -3,12 +3,24 @@ package AST_Generator;
 
 import java.util.ArrayList;
 
+/**
+ * The ASTFactory class is responsible for generating the Abstract Syntax Tree (AST) from a given list of data.
+ */
 public class ASTFactory {
     
+    /**
+     * Constructs a new ASTFactory object.
+     */
     public ASTFactory() {
         
     }
     
+    /**
+     * Generates the Abstract Syntax Tree (AST) from the given list of data.
+     * 
+     * @param data The list of data used to generate the AST.
+     * @return The generated Abstract Syntax Tree (AST).
+     */
     public AST getAbstractSyntaxTree(ArrayList<String> data) {
         Node root = NodeFactory.getNode(data.get(0), 0);
         Node previous_node = root;

@@ -2,6 +2,10 @@ package AST_Generator;
 
 import java.util.ArrayList;
 
+/**
+ * The `Node` class represents a node in an abstract syntax tree (AST).
+ * Each node contains data, depth, parent node, children nodes, and a flag indicating if it has been standardized.
+ */
 public class Node {
 	
     private String data;
@@ -42,6 +46,12 @@ public class Node {
         return this.parent;
     }
     
+    /**
+     * Recursively standardizes the current node and its children according to specific rules.
+     * This method is used in the AST_Generator to transform the abstract syntax tree (AST) into a standardized form.
+     * The standardization process involves applying various transformations to the tree nodes based on their data.
+     * The method modifies the current node and its children in-place.
+     */
     public void standardize() {
         if (!this.isStandardized) {
             for (Node child: this.children) {

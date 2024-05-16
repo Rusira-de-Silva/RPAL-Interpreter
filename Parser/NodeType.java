@@ -1,5 +1,10 @@
 package Parser;
 
+/**
+ * The NodeType enum represents the different types of nodes in the RPAL interpreter.
+ * Each node type corresponds to a specific token or construct in the RPAL language.
+ * The enum values include identifiers, literals, operators, and special keywords.
+ */
 public enum NodeType {
 	let,
 	fcn_form,

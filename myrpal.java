@@ -1,7 +1,17 @@
 import Evaluator.Evaluator;
 
+/**
+ * The `myrpal` class is the entry point for the RPAL interpreter program.
+ * It provides a `main` method that accepts command-line arguments and executes the interpreter.
+ */
 public class myrpal {
     
+    /**
+     * The main method is the entry point for the RPAL interpreter program.
+     * It accepts command-line arguments and executes the interpreter.
+     * 
+     * @param args The command-line arguments passed to the program.
+     */
     public static void main(String[] args) {  
         String fn;
         boolean isPrintAST=false;
@@ -27,8 +37,5 @@ public class myrpal {
             return;
         }
         System.out.println(Evaluator.evaluvate(fn,isPrintAST));                                  
-
-
-                                                                 
     }
 }

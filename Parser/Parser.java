@@ -8,6 +8,11 @@ import java.util.List;
 import Scanner.Token;
 import Scanner.TokenType;
 
+/**
+ * The Parser class is responsible for parsing a list of tokens and generating an Abstract Syntax Tree (AST).
+ * It takes a list of tokens as input and provides methods to parse the tokens and generate the AST.
+ * The AST can be converted to a string representation using the convertAST_toStringAST() method.
+ */
 public class Parser {
 	private List<Token> tokens;
 	private List<Node> AST; 
@@ -19,6 +24,11 @@ public class Parser {
 		stringAST = new ArrayList<>();
 	}
 	
+	/**
+	 * Parses the tokens and constructs the Abstract Syntax Tree (AST).
+	 * 
+	 * @return The list of nodes in the AST if parsing is successful, null otherwise.
+	 */
 	public List<Node> parse(){
 		tokens.add(new Token(TokenType.EndOfTokens,""));
 		E();
@@ -35,6 +45,11 @@ public class Parser {
 		}
 	}
 	
+	/**
+	 * Converts the Abstract Syntax Tree (AST) to a string representation of the AST.
+	 * 
+	 * @return The ArrayList of strings representing the AST.
+	 */
 	public ArrayList<String> convertAST_toStringAST(){
 		
 		String dots = "";
@@ -77,6 +92,12 @@ public class Parser {
 		return stringAST;
 	}
 	
+	/**
+	 * Adds string representations of different node types to the stringAST list.
+	 * 
+	 * @param dots The string representation of dots to be added before the node value.
+	 * @param node The node whose string representation is to be added to the stringAST list.
+	 */
 	void addStrings(String dots,Node node) {
 			switch(node.type) {
 				case identifier:
