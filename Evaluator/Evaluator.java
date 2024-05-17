@@ -9,7 +9,7 @@ import Parser.Node;
 import Parser.Parser;
 import Scanner.LexicalAnalyzer;
 import Scanner.Token;
-import Utils.CustomException;
+import Utils.ExceptionHandler;
 
 /**
  * The Evaluator class is responsible for evaluating RPAL programs.
@@ -50,7 +50,7 @@ public class Evaluator {
 		        CSEMachineFactory csemfac = new CSEMachineFactory(); 
 		        CSEMachine csemachine = csemfac.getCSEMachine(ast);   
 		       return csemachine.getAnswer();
-			} catch (CustomException e) {
+			} catch (ExceptionHandler e) {
 				System.out.println(e.getMessage());
 			}
 
